@@ -1,10 +1,16 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { getJwtToken } from "../../utils/services/storage.service";
 
 export const authSlice = createApi({
   reducerPath: "auth",
   baseQuery: fetchBaseQuery({
     // baseUrl: "http://localhost:4000/auth",
     baseUrl: "http://localhost:4001",
+    prepareHeaders: (headers, { getState }) => {
+      const token = getJwtToken();
+      if (token) headers.set("Authorization", `Bearer ${token}`);
+      return headers;
+    },
   }),
   tagTypes: [],
   endpoints: (builder) => ({

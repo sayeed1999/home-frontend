@@ -1,24 +1,39 @@
 import { MenuFoldOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import { useRouter } from "next/router";
-import { createRef, useState } from "react";
+import { createRef, useEffect, useState } from "react";
 import Room from "../../components/modules/chatroom/Room";
 import UserList from "../../components/modules/chatroom/UserList";
 import AppRoutes from "../../constants/AppRoutes";
 import {
   useGetAllUsersQuery,
+  useGetCurrentUserQuery,
   useGetMessagesWithUserQuery,
 } from "../../rtk/features/chatSlice";
 import styles from "../../styles/Chatroom.module.scss";
+import { getUser, setChatUser } from "../../utils/services/storage.service";
 
 const Chatroom = () => {
   const router = useRouter();
+  const [to, setTo] = useState({});
   const rooms = ["help", "general", "fun"];
   const [room, setRoom] = useState(rooms[0]);
   const roomlistRef = createRef();
-  const { data: userList, isLoading, isError } = useGetAllUsersQuery();
-  const { data: conversation } = useGetMessagesWithUserQuery();
-  const [to, setTo] = useState({});
+  const currentUser = getUser();
+  const { data: chatModuleCurrentUserResponse } = useGetCurrentUserQuery();
+
+  useEffect(() => {
+    if (chatModuleCurrentUserResponse?.data) {
+      setChatUser(chatModuleCurrentUserResponse?.data);
+    }
+  }, [chatModuleCurrentUserResponse?.data]);
+
+  const {
+    data: userList,
+    isLoading,
+    isError,
+  } = useGetAllUsersQuery(currentUser?._id);
+  const { data: conversation } = useGetMessagesWithUserQuery(to._id);
 
   const toggleMenu = () => {
     // toggle menu position from -150 to 0 and back

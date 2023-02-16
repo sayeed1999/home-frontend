@@ -11,6 +11,19 @@ export const getUser = () => {
   return undefined;
 };
 
+export const setChatUser = (user) => {
+  if (user) localStorage.setItem("chatUser", JSON.stringify(user));
+};
+
+export const getChatUser = () => {
+  if (typeof window !== "undefined") {
+    const data = localStorage.getItem("chatUser");
+    if (!data) return null;
+    return JSON.parse(data);
+  }
+  return undefined;
+};
+
 export const setJwtToken = (token) => {
   if (token) localStorage.setItem("jwtToken", token);
 };

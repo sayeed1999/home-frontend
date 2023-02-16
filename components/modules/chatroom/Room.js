@@ -1,35 +1,38 @@
 import { useRouter } from "next/router";
 import { createRef, useEffect, useState } from "react";
-import { io } from "socket.io-client";
+// import { io } from "socket.io-client";
 import SingleInputForm from "../../../components/shared/SingleInputForm";
+import { useSendMessageToUserMutation } from "../../../rtk/features/chatSlice";
 import styles from "../../../styles/Room.module.scss";
-import { getUser } from "../../../utils/services/storage.service";
+import { getChatUser } from "../../../utils/services/storage.service";
 const ENDPOINT = process.env.NEXT_APP_API_URL;
-const socket = io(ENDPOINT);
+// const socket = io(ENDPOINT);
 
 const Room = ({ conversation, to }) => {
-  console.log(conversation, to);
+  const messages = conversation?.messages || [];
+  const participants = conversation?.participants;
   const router = useRouter();
-  const currentUser = getUser();
+  const currentUser = getChatUser();
   // const [room, setRoom] = useState();
   const [newMessage, setNewMessage] = useState("");
   const bottomRef = createRef();
+  const [send, { data: messageSentResponse, isSuccess, isLoading, isError }] =
+    useSendMessageToUserMutation();
 
-  // useEffect(() => {
-  //   const handleTabClose = (event) => {
-  //     event.preventDefault();
-  //     // console.log("beforeunload event triggered");
-  //     socket.emit("leave", { room });
-  //     socket.off();
+  useEffect(() => {
+    const handleTabClose = (event) => {
+      event.preventDefault();
+      // console.log("beforeunload event triggered");
+      // socket.emit("leave", { room });
+      // socket.off();
+      return (event.returnValue = "Are you sure you want to exit?");
+    };
 
-  //     return (event.returnValue = "Are you sure you want to exit?");
-  //   };
-
-  //   window.addEventListener("beforeunload", handleTabClose);
-  //   return () => {
-  //     window.removeEventListener("beforeunload", handleTabClose);
-  //   };
-  // }, []);
+    window.addEventListener("beforeunload", handleTabClose);
+    return () => {
+      window.removeEventListener("beforeunload", handleTabClose);
+    };
+  }, []);
 
   // useEffect(() => {
   //   if (router.asPath.includes("#")) {
@@ -64,36 +67,36 @@ const Room = ({ conversation, to }) => {
     bottomRef?.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const sendMessage = () => {
-    // socket.emit("sendMessage", newMessage, (error) => {
-    //   if (error) return alert(error);
-    //   setNewMessage("");
-    // });
+  const sendMessage = async () => {
+    const body = {
+      text: newMessage,
+    };
+    await send({ user_id: to._id, body });
   };
 
   const roomHeader = (
     <>
       <strong style={{ textDecoration: "underline" }}>
-        # {to?.name || "Unknown"}
+        # {to?.name} {"<>"} {currentUser?.name}
       </strong>
     </>
   );
 
-  // const messagesList = messages?.map((m, i) => (
-  //   <div
-  //     key={i}
-  //     className={
-  //       m.user === "admin"
-  //         ? styles.bot
-  //         : m.user === name
-  //         ? styles.self
-  //         : styles.other
-  //     }
-  //   >
-  //     <div className={styles.title}>{m.user}:</div>
-  //     <div className={styles.body}>{m.text}</div>
-  //   </div>
-  // ));
+  const messagesList = messages?.map((m, i) => (
+    <div
+      key={i}
+      className={
+        m.sender === "bot"
+          ? styles.bot
+          : m.sender?.toString() === currentUser?._id?.toString()
+          ? styles.self
+          : styles.other
+      }
+    >
+      <div className={styles.title}>{participants[m.sender].name}:</div>
+      <div className={styles.body}>{m.text}</div>
+    </div>
+  ));
 
   const sendMessageBox = (
     <SingleInputForm
@@ -109,7 +112,7 @@ const Room = ({ conversation, to }) => {
   return (
     <div className={styles.room}>
       {roomHeader}
-      {/* {messagesList} */}
+      {messagesList}
       {sendMessageBox}
       {componentBottom}
     </div>
