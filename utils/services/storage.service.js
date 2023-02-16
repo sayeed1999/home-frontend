@@ -10,3 +10,16 @@ export const getUser = () => {
   }
   return undefined;
 };
+
+export const setJwtToken = (token) => {
+  if (token) localStorage.setItem("jwtToken", token);
+};
+
+export const getJwtToken = () => {
+  if (typeof window !== "undefined") {
+    const data = localStorage.getItem("jwtToken");
+    if (!data) return null;
+    return data;
+  }
+  return undefined;
+};

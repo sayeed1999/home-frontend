@@ -10,7 +10,7 @@ import PasswordInput from "../../components/shared/PasswordInput";
 import AppMsgs from "../../constants/AppMsgs";
 import AppRoutes from "../../constants/AppRoutes";
 import { useLoginMutation } from "../../rtk/features/authSlice";
-import { setUser } from "../../utils/services/storage.service";
+import { setJwtToken, setUser } from "../../utils/services/storage.service";
 
 const Login = () => {
   const { push } = useRouter();
@@ -28,7 +28,8 @@ const Login = () => {
         text: AppMsgs.LoggedIn,
         icon: "success",
       });
-      setUser(data.data);
+      setUser(data.data.user);
+      setJwtToken(data.data.token);
       push(AppRoutes.Chatroom);
     }
   }, [data, isLoading, isError, isSuccess]);

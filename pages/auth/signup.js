@@ -12,7 +12,6 @@ import TextInput from "../../components/shared/TextInput";
 import AppMsgs from "../../constants/AppMsgs";
 import AppRoutes from "../../constants/AppRoutes";
 import { useRegisterMutation } from "../../rtk/features/authSlice";
-import { setUser } from "../../utils/services/storage.service";
 
 const Signup = () => {
   const { push } = useRouter();
@@ -34,8 +33,8 @@ const Signup = () => {
         text: AppMsgs.SignedUp,
         icon: "success",
       });
-      setUser(data.data);
-      push(AppRoutes.Chatroom);
+      // setUser(data.data);
+      push(AppRoutes.Login);
     }
   }, [data, isLoading, isError, isSuccess]);
 
