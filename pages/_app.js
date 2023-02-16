@@ -5,7 +5,6 @@ import React from "react";
 import { Provider } from "react-redux";
 import swal from "sweetalert";
 import Layout from "../components/Layout";
-import Loader from "../components/Loader";
 import { store } from "../rtk/store";
 import "../styles/globals.scss";
 import { useSaveScrollPosition } from "../utils/hooks/scroll";
@@ -66,7 +65,6 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <Provider store={store}>
-        <Loader />
         <Layout>
           <Component {...pageProps} />
         </Layout>
