@@ -48,11 +48,14 @@ const Chatroom = () => {
 
   return (
     <div className={`${styles.chatroom} row`}>
-      <div ref={roomlistRef} className={`${styles.roomlist} col-md-3`}>
+      <div ref={roomlistRef} className={`${styles.roomlist} col-md-2`}>
         {roomlist}
       </div>
-      <div className={`${styles.room} col-md-9`}>
+      <div className={`${styles.room} col-md-8`}>
         <Room />
+      </div>
+      <div ref={roomlistRef} className={`${styles.roomlist} col-md-2`}>
+        {roomlist}
       </div>
     </div>
   );
