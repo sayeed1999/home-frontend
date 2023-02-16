@@ -3,7 +3,8 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const authSlice = createApi({
   reducerPath: "auth",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:4000/auth",
+    // baseUrl: "http://localhost:4000/auth",
+    baseUrl: "http://localhost:4001",
   }),
   tagTypes: [],
   endpoints: (builder) => ({
@@ -48,3 +49,5 @@ export const {
   useUpdateCurrentUserMutation,
   useDeleteCurrentUserMutation,
 } = authSlice;
+
+export default authSlice;

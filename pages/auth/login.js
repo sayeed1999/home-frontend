@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import swal from "sweetalert";
 import Button from "../../components/shared/Button";
 import EmailInput from "../../components/shared/EmailInput";
@@ -9,36 +9,35 @@ import Form from "../../components/shared/Form";
 import PasswordInput from "../../components/shared/PasswordInput";
 import AppMsgs from "../../constants/AppMsgs";
 import AppRoutes from "../../constants/AppRoutes";
+import { useLoginMutation } from "../../rtk/features/authSlice";
+import { setUser } from "../../utils/services/storage.service";
 
 const Login = () => {
+  const { push } = useRouter();
   const dispatch = useDispatch();
-  const authStatus = useSelector((state) => state?.auth?.status);
-  const error = useSelector((state) => state?.auth?.error);
+  const [login, { isLoading, isSuccess, isError, data }] = useLoginMutation();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { push } = useRouter();
-
   useEffect(() => {
-    if (authStatus === "succeeded") {
-      // swal is firing on app reload due to getting auth valid token
+    // console.log(data, isLoading, isError, isSuccess);
+    if (data && isSuccess && !isLoading) {
       swal({
         title: "Success",
         text: AppMsgs.LoggedIn,
         icon: "success",
       });
-      push(AppRoutes.Newsfeed);
+      setUser(data.data);
+      push(AppRoutes.Chatroom);
     }
+  }, [data, isLoading, isError, isSuccess]);
 
-    // dispatch(resetStatus());
-  }, [authStatus]);
-
-  const submit = () => {
+  const submit = async () => {
     if (!email || !password) {
       return swal("Warning", AppMsgs.RequiredFieldsEmpty, "warning");
     }
-    dispatch(login({ email, password }));
+    await login({ email, password });
   };
 
   return (
