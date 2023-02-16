@@ -1,0 +1,30 @@
+@import "./partials/colors.scss";
+
+.addToCartButton {
+  background: $addToCartBackgroundColor;
+  text-align: center;
+  transform: translateY(-190px);
+  cursor: pointer;
+
+  &:hover {
+    background-color: $addToCartBackgroundHoverColor;
+  }
+
+  &:active {
+    background-color: $addToCartBackgroundActiveColor;
+  }
+}
+
+.productReview {
+  background: $productReviewBackgroundColor;
+  text-align: center;
+  transform: translateY(-200px);
+
+  &:hover {
+    background: $productReviewBackgroundHoverColor;
+  }
+
+  &:active {
+    background-color: $productReviewBackgroundActiveColor;
+  }
+}

@@ -1,0 +1,76 @@
+@import "./partials/colors.scss";
+
+.room {
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  line-height: 22px;
+  min-height: 100%;
+}
+
+.bot {
+  font-size: small;
+  color: $botMessageTextColor;
+  text-align: center;
+  font-style: italic;
+}
+
+.self {
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.other {
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  .title {
+    font-size: small;
+    text-decoration: underline;
+    font-weight: 500;
+    color: $titleTextColor;
+  }
+}
+
+.bot,
+.self {
+  .title {
+    display: none;
+  }
+}
+
+.bot {
+  .body {
+    margin-bottom: 12px;
+  }
+}
+
+.self,
+.other {
+  .body {
+    max-width: 65%;
+    margin: 3px 0 12px;
+  }
+}
+
+.self {
+  .body {
+    background-image: $selfMessageBackgroundColor;
+    padding: 12px;
+    border-radius: 15px;
+  }
+}
+
+.other {
+  .body {
+    background-image: $otherMessageBackgroundColor;
+    color: white;
+    padding: 12px;
+    border-radius: 15px;
+  }
+}

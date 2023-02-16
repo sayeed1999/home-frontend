@@ -1,0 +1,38 @@
+{
+  "name": "developers-cafe-client",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint && npm i -D prettier && npm i -D babel-eslint && npx install-peerdeps --dev eslint-config-airbnb && npm i -D eslint-config-prettier eslint-plugin-prettier"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^1.8.2",
+    "antd": "^4.22.4",
+    "axios": "^0.27.2",
+    "next": "12.1.6",
+    "node-sass": "^7.0.1",
+    "react": "18.1.0",
+    "react-dom": "18.1.0",
+    "react-redux": "^8.0.2",
+    "react-syntax-highlighter": "^15.5.0",
+    "redux": "^4.2.0",
+    "socket.io-client": "^4.5.1",
+    "sweetalert": "^2.1.2"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-next": "12.1.6",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.6.2"
+  }
+}

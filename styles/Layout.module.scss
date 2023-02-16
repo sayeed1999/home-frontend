@@ -1,0 +1,14 @@
+@import "./partials/colors.scss";
+
+.footer {
+  background-color: $footerBackgroundColor;
+  color: $footerTextColor;
+  width: 100%;
+  height: 3vh;
+  position: fixed;
+  z-index: 10;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

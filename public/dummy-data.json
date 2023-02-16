@@ -1,0 +1,104 @@
+{
+  "posts": [
+    {
+      "body": "Hey, i am learning React js..",
+      "comments": {
+        "20": {
+          "body": "Keep up the good work :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        },
+        "21": {
+          "body": "Keep up the good work everyday! :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        }
+      },
+      "createdAt": "2022-06-04",
+      "likes": 13,
+      "userId": "CMpRtdw8NDTNR3BhwRjkg4sO2Za2",
+      "username": "Raju Ahmed"
+    },
+    {
+      "body": "Hey, i am making my own website!",
+      "comments": {
+        "20": {
+          "body": "Keep up the good work :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        },
+        "21": {
+          "body": "Keep up the good work everyday! :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        }
+      },
+      "createdAt": "2022-06-04",
+      "likes": 23,
+      "userId": "W4iJRo4IGtf5fsOnWasIzFsixHs2",
+      "username": "Mucktadir Hasan Sayem"
+    },
+    {
+      "body": "Hey, i am learning React js..",
+      "comments": {
+        "20": {
+          "body": "Keep up the good work :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        },
+        "21": {
+          "body": "Keep up the good work everyday! :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        }
+      },
+      "createdAt": "2022-06-04",
+      "likes": 7,
+      "userId": "CMpRtdw8NDTNR3BhwRjkg4sO2Za2",
+      "username": "Raju Ahmed"
+    },
+    {
+      "body": "Hey, i am making my own website!",
+      "comments": {
+        "20": {
+          "body": "Keep up the good work :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        },
+        "21": {
+          "body": "Keep up the good work everyday! :)",
+          "createdAt": "2022-06-05",
+          "userId": "BbIJe6JovPbqUdIp9eb3OQUhMf13",
+          "username": "Md. Sayeed Rahman"
+        }
+      },
+      "createdAt": "2022-06-04",
+      "likes": 3,
+      "userId": "W4iJRo4IGtf5fsOnWasIzFsixHs2",
+      "username": "Mucktadir Hasan Sayem"
+    }
+  ],
+  "products": [
+    {
+      "category": "Coffee",
+      "price": "$9.99",
+      "stocked": true,
+      "name": "Espresso",
+      "img": "https://th.bing.com/th/id/OIP.81zV2zMum-swUEnOz5o2qgHaFP?pid=ImgDet&w=1200&h=850&rs=1"
+    },
+    {
+      "category": "Coffee",
+      "price": "$8.99",
+      "stocked": true,
+      "name": "Latte",
+      "img": "https://th.bing.com/th/id/OIP.qt87YWIcF7DvpuDQEyTlrAHaGM?pid=ImgDet&rs=1"
+    }
+  ]
+}

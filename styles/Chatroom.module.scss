@@ -1,0 +1,47 @@
+@import "./partials/colors.scss";
+
+// .chatroom {
+//   position: relative;
+// }
+
+.roomlist {
+  background-color: $roomlistBackgroundColor;
+  color: $roomlistTextColor;
+  height: 88vh;
+  border: solid 2px $roomlistBackgroundColor;
+  overflow-y: auto;
+  padding-top: 30px;
+  transition: 0.5s ease-in-out;
+
+  .roomlistitem {
+    background-color: $roomlistitemBackgroundColor;
+    margin: 10px 0px 10px 10px;
+    padding: 10px 20px;
+    color: $roomlistitemTextColor;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 5px;
+
+    &:hover {
+      background-color: $roomlistitemBackgroundHoverColor;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  /* max-width: col-md */
+  .roomlist {
+    height: max-content;
+    width: 100vw;
+    box-shadow: 2px 2px 2px gray;
+    position: absolute;
+    left: 0;
+    top: -200px;
+  }
+}
+
+.room {
+  background-color: $roomBackgroundColor;
+  height: 88vh;
+  overflow-y: auto;
+}

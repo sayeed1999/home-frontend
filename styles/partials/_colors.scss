@@ -1,0 +1,42 @@
+/* globals */
+
+$appBackgroundColor: #efefef;
+
+/* chatroom colors */
+
+$roomlistBackgroundColor: darkcyan;
+$roomlistTextColor: white;
+$roomlistitemBackgroundColor: white;
+$roomlistitemTextColor: teal;
+$roomlistitemBackgroundHoverColor: aliceblue;
+
+$roomBackgroundColor: white;
+
+$titleTextColor: #666666;
+$botMessageTextColor: #424242;
+$selfMessageBackgroundColor: linear-gradient(to bottom right, #cccccc, #efefef);
+$otherMessageBackgroundColor: linear-gradient(
+  to top right,
+  rgb(2, 162, 255),
+  rgb(0, 255, 0)
+);
+
+/* form colors */
+
+$formBackgroundColor: #d8ffe3;
+$formBoxShadowColor: rgba(24, 23, 23, 0.703);
+
+/* product colors */
+
+$addToCartBackgroundColor: #f4f4f468;
+$addToCartBackgroundHoverColor: #fefefeaa;
+$addToCartBackgroundActiveColor: #ffffffee;
+
+$productReviewBackgroundColor: #f4f4f468;
+$productReviewBackgroundHoverColor: #fefefe99;
+$productReviewBackgroundActiveColor: #ffffffee;
+
+/* footer colors */
+
+$footerBackgroundColor: black;
+$footerTextColor: white;
