@@ -9,12 +9,11 @@ import Form from "../../components/shared/Form";
 import PasswordInput from "../../components/shared/PasswordInput";
 import AppMsgs from "../../constants/AppMsgs";
 import AppRoutes from "../../constants/AppRoutes";
-import { login, resetStatus } from "../../store/reducers/authReducer";
 
 const Login = () => {
   const dispatch = useDispatch();
-  const authStatus = useSelector((state) => state.auth.status);
-  const error = useSelector((state) => state.auth.error);
+  const authStatus = useSelector((state) => state?.auth?.status);
+  const error = useSelector((state) => state?.auth?.error);
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,7 +31,7 @@ const Login = () => {
       push(AppRoutes.Newsfeed);
     }
 
-    dispatch(resetStatus());
+    // dispatch(resetStatus());
   }, [authStatus]);
 
   const submit = () => {

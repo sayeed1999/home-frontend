@@ -5,18 +5,14 @@ import { useDispatch, useSelector } from "react-redux";
 import swal from "sweetalert";
 import Product from "../../../components/modules/cafe/Product";
 import SingleInputForm from "../../../components/shared/SingleInputForm";
-import {
-  fetchProductById,
-  giveProductRating,
-} from "../../../store/reducers/productsReducer";
 
 const ProductDetail = () => {
   // console.log("product detail rendered");
   const router = useRouter();
   const { id } = router.query;
   const dispatch = useDispatch();
-  let product = useSelector((state) => state.products.product);
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  let product = useSelector((state) => state?.products?.product);
+  const currentUser = useSelector((state) => state?.auth?.currentUser);
   const [yourRating, setYourRating] = useState();
 
   useEffect(() => {

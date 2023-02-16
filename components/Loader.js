@@ -1,17 +1,16 @@
 import { Spin } from "antd";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useState } from "react";
 
 export default function Loader() {
   // note: all these are statuses
-  const posts = useSelector((state) => state.posts.status) === "loading";
-  const auth = useSelector((state) => state.auth.status) === "loading";
+  // const posts = useSelector((state) => state?.posts?.status) === "loading";
+  // const auth = useSelector((state) => state?.auth?.status) === "loading";
 
   const [active, setActive] = useState(false);
 
-  useEffect(() => {
-    setActive((_prev) => posts || auth);
-  }, [posts, auth]);
+  // useEffect(() => {
+  //   setActive((_prev) => posts || auth);
+  // }, [posts, auth]);
 
   if (!active) return <></>;
 

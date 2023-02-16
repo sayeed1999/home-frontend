@@ -2,7 +2,6 @@ import { ArrowDownOutlined, ArrowUpOutlined } from "@ant-design/icons";
 import { Button } from "antd";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { commentOnPost } from "../../../store/reducers/postsReducer";
 import SingleInputForm from "../../shared/SingleInputForm";
 import Comment from "./Comment";
 
@@ -10,7 +9,7 @@ const Comments = ({ comments, postId }) => {
   // console.log("comments rendered");
   const [hideComments, setHideComments] = useState(true);
   const [commentBody, setCommentBody] = useState("");
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = useSelector((state) => state?.auth?.currentUser);
   const dispatch = useDispatch();
 
   useEffect(() => {

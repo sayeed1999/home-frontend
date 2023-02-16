@@ -6,7 +6,7 @@ import { Provider } from "react-redux";
 import swal from "sweetalert";
 import Layout from "../components/Layout";
 import Loader from "../components/Loader";
-import store from "../store";
+import { store } from "../rtk/store";
 import "../styles/globals.scss";
 import { useSaveScrollPosition } from "../utils/hooks/scroll";
 
@@ -51,7 +51,7 @@ function MyApp({ Component, pageProps }) {
       <Head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>Developer&apos;s Cafe, BD 🔥</title>
+        <title> Home 1.0 🔥</title>
         <link
           href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
           rel="stylesheet"

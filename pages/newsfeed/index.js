@@ -5,21 +5,16 @@ import swal from "sweetalert";
 import Post from "../../components/modules/newsfeed/Post";
 import Button from "../../components/shared/Button";
 import SingleInputForm from "../../components/shared/SingleInputForm";
-import {
-  createPost,
-  fetchPosts,
-  loadMore,
-} from "../../store/reducers/postsReducer";
 import { PostCategoryEnum } from "../../utils/enums/global-enum";
 import { useScroll } from "../../utils/hooks/scroll";
 
 const Newsfeed = () => {
   // const router = useRouter();
   const dispatch = useDispatch();
-  const currentUser = useSelector((state) => state.auth.currentUser);
-  const posts = useSelector((state) => state.posts.posts);
+  const currentUser = useSelector((state) => state?.auth?.currentUser);
+  const posts = useSelector((state) => state?.posts?.posts);
   useScroll();
-  const postsStatus = useSelector((state) => state.posts.status);
+  const postsStatus = useSelector((state) => state?.posts?.status);
   // new post form fields...
   const [category, setCategory] = useState(PostCategoryEnum.text);
   const [postBody, setPostBody] = useState("");
@@ -74,11 +69,15 @@ const Newsfeed = () => {
     </div>
   );
 
-  const postsGrid = Object.entries(posts).map((entry) => (
-    <div className="col-md-12" key={entry[0]}>
-      <Post post={entry[1]} />
-    </div>
-  ));
+  const postsGrid = posts ? (
+    Object.entries(posts).map((entry) => (
+      <div className="col-md-12" key={entry[0]}>
+        <Post post={entry[1]} />
+      </div>
+    ))
+  ) : (
+    <></>
+  );
 
   const showMore = (
     <div className="m-2 text-center">

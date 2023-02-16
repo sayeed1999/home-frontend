@@ -12,7 +12,6 @@ import { useRouter } from "next/router";
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import AppRoutes from "../constants/AppRoutes";
-import { logout } from "../store/reducers/authReducer";
 import Button from "./shared/Button";
 
 function getItem(label, key, icon, children, type) {
@@ -41,7 +40,7 @@ const AppDrawer = ({ children }) => {
   const router = useRouter();
   const dispatch = useDispatch();
   const [collapsed, setCollapsed] = useState(false);
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = useSelector((state) => state?.auth?.currentUser);
 
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);

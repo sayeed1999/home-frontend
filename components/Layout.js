@@ -1,7 +1,5 @@
 import { useRouter } from "next/router";
-import { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { getCurrentUser } from "../store/reducers/authReducer";
 // import styles from "../styles/Layout.module.scss";
 import AppDrawer from "./AppDrawer";
 
@@ -9,10 +7,10 @@ const Layout = (props) => {
   const dispatch = useDispatch();
   const router = useRouter();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) dispatch(getCurrentUser(token));
-  }, []);
+  // useEffect(() => {
+  //   const token = localStorage.getItem("token");
+  //   if (token) dispatch(getCurrentUser(token));
+  // }, []);
 
   return (
     <AppDrawer>

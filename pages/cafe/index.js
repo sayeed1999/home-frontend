@@ -1,7 +1,6 @@
-import FilterableProducts from "../../components/modules/cafe//FilterableProducts";
-
 const Cafe = () => {
-  return <FilterableProducts />;
+  // return <FilterableProducts />;
+  return <>Under development</>;
 };
 
 export default Cafe;

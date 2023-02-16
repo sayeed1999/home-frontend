@@ -3,14 +3,13 @@ import { Button, Card, Typography } from "antd";
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SyntaxHighter from "react-syntax-highlighter";
-import { tapHeart } from "../../../store/reducers/postsReducer";
 import { PostCategoryEnum } from "../../../utils/enums/global-enum";
 import Comments from "./Comments";
 const { Text, Link } = Typography;
 
 const Post = ({ post }) => {
   // console.log("post rendered");
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = useSelector((state) => state?.auth?.currentUser);
   const dispatch = useDispatch();
 
   const headerSection = (

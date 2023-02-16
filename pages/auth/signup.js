@@ -11,12 +11,11 @@ import PasswordInput from "../../components/shared/PasswordInput";
 import TextInput from "../../components/shared/TextInput";
 import AppMsgs from "../../constants/AppMsgs";
 import AppRoutes from "../../constants/AppRoutes";
-import { resetStatus, signup } from "../../store/reducers/authReducer";
 
 const Signup = () => {
   const dispatch = useDispatch();
-  const authStatus = useSelector((state) => state.auth.status);
-  const error = useSelector((state) => state.auth.error);
+  const authStatus = useSelector((state) => state?.auth?.status);
+  const error = useSelector((state) => state?.auth?.error);
 
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
@@ -35,7 +34,7 @@ const Signup = () => {
       });
       push(AppRoutes.Login);
     }
-    dispatch(resetStatus());
+    // dispatch(resetStatus());
   }, [authStatus]);
 
   const submit = () => {

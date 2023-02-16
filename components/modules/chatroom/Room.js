@@ -9,7 +9,7 @@ const socket = io(ENDPOINT);
 
 const Room = () => {
   const router = useRouter();
-  const currentUser = useSelector((state) => state.auth.currentUser);
+  const currentUser = useSelector((state) => state?.auth?.currentUser);
   const username = (currentUser?.username || "Anonymous user").toLowerCase();
   const [room, setRoom] = useState("");
   const [messages, setMessages] = useState([]);
